@@ -595,14 +595,6 @@ writeData(wb, sheet = "Top 10 Canine Breeds", top10_canine_breeds)
 # Save the workbook to a file
 saveWorkbook(wb, file.path("project_results", "top10_breeds_names_species.xlsx"))
 
-
-# Save top 10 as csv files
-write.csv(top10_speciesname, file = file.path("project_results", "top10_speciesname.csv"), row.names = FALSE)
-write.csv(top10_names, file = file.path("project_results", "top10_names.csv"), row.names = FALSE)
-write.csv(top10_feline_breeds, file = file.path("project_results", "top10_feline_breeds.csv"), row.names = FALSE)
-write.csv(top10_canine_breeds, file = file.path("project_results", "top10_canine_breeds.csv"), row.names = FALSE)
-
-
 # make/save bar plots of top 10
 speciesname_plot <- ggplot(top10_speciesname, aes(x = reorder(speciesname, -n), y = n)) +
   geom_bar(stat = "identity", fill = "blue") +
